@@ -1,0 +1,10 @@
+.my-input-group input{
+    width: 50px;
+    
+}
+
+.my-input-group{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
