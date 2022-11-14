@@ -1,15 +1,21 @@
 const btnStartGame=document.querySelector(".start-game");
 const btnResultGame=document.querySelector(".result-game");
-
+const inputElList=[];
+let listNum;
 
 
 
 btnStartGame.addEventListener("click",function(){
+    const resoultOutEl=document.querySelector(".resoult-output")
     const numOutEl=document.querySelector(".numeri-out");
-    const listNum=random5Number();
+    numOutEl.innerHTML="";
+    resoultOutEl.innerHTML="";
+    listNum=random5Number();
     listNum.forEach(i=>numOutEl.append(i+" "));
-    setTimeout(clearList,2000); 
+    btnResultGame.classList.remove("visually-hidden");
+    setTimeout(clearList,6000); 
     console.log(listNum);
+    
 
 })
 
@@ -21,7 +27,37 @@ function clearList(){
 
 
 btnResultGame.addEventListener("click",function(){
+    const resoultOutEl=document.querySelector(".resoult-output")
+    const numUser=[];
+    let numIndovinatiList=[];
+    let counterCorrect=0;
+    inputElList.forEach(i=>numUser.push(+i.value))
+
+    //inizio i controlli su i due array per verificare i dati utente
+    numUser.forEach(i=>{
+        if(listNum.includes(i)){
+            counterCorrect++;
+            numIndovinatiList.push(i);
+
+        }
+        
+
+    })
+    if(counterCorrect===0){
+        resoultOutEl.innerHTML=`Non hai una buona memoria`;
+
+    }
+    else{
+        
+        resoultOutEl.innerHTML=`Hai ricordato ${counterCorrect} numeri e sono 
+    ${numIndovinatiList.toString()}`
+    }
+
     
+    
+    
+
+
 })
 
 //********************************************************************* */
@@ -30,6 +66,7 @@ const inputGroupEl=document.querySelector(".my-input-group");
 for(let i=0;i<5;i++){
     const inputEl=document.createElement("input");
     inputEl.type="text";
+    inputElList.push(inputEl);
     inputGroupEl.append(inputEl);
 
 }
@@ -62,3 +99,4 @@ function random5Number(){
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 //********************************************************************* */
+
