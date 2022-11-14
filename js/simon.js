@@ -8,12 +8,16 @@ let listNum;
 btnStartGame.addEventListener("click",function(){
     const resoultOutEl=document.querySelector(".resoult-output")
     const numOutEl=document.querySelector(".numeri-out");
+    const inputGroupEl=document.querySelector(".my-input-group");
+    inputGroupEl.classList.add("visually-hidden");
+    btnResultGame.classList.add("visually-hidden");
+
     numOutEl.innerHTML="";
     resoultOutEl.innerHTML="";
     listNum=random5Number();
     listNum.forEach(i=>numOutEl.append(i+" "));
-    btnResultGame.classList.remove("visually-hidden");
-    setTimeout(clearList,30000); 
+    
+    setTimeout(clearList,3000); 
     console.log(listNum);
     
 
@@ -22,6 +26,10 @@ btnStartGame.addEventListener("click",function(){
 function clearList(){
     const numOutEl=document.querySelector(".numeri-out");
     numOutEl.innerHTML="";
+    const inputGroupEl=document.querySelector(".my-input-group");
+    inputGroupEl.classList.remove("visually-hidden");
+    btnResultGame.classList.remove("visually-hidden");
+
 
 }
 
