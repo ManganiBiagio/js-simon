@@ -29,6 +29,7 @@ function clearList(){
     const inputGroupEl=document.querySelector(".my-input-group");
     inputGroupEl.classList.remove("visually-hidden");
     btnResultGame.classList.remove("visually-hidden");
+    inputElList.forEach(i=>i.value="");
 
 
 }
