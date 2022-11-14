@@ -13,7 +13,7 @@ btnStartGame.addEventListener("click",function(){
     listNum=random5Number();
     listNum.forEach(i=>numOutEl.append(i+" "));
     btnResultGame.classList.remove("visually-hidden");
-    setTimeout(clearList,6000); 
+    setTimeout(clearList,30000); 
     console.log(listNum);
     
 
